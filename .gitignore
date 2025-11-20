@@ -57,8 +57,10 @@ $RECYCLE.BIN/
 *.lnk
 
 # Data files (large datasets)
-data/afhq-raw/
-data/afhq_split_80_20/
+data/afhq-raw/*
+!data/afhq-raw/.gitkeep
+data/afhq_split_80_20/*
+!data/afhq_split_80_20/.gitkeep
 
 # Models (large files)
 Notebook/models/*.pkl
