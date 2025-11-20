@@ -1,0 +1,35 @@
+{
+  "IMG_SIZE_HOG": [
+    128,
+    128
+  ],
+  "HOG_ORIENTATIONS": 9,
+  "HOG_PIX_PER_CELL": [
+    8,
+    8
+  ],
+  "HOG_CELL_PER_BLOCK": [
+    2,
+    2
+  ],
+  "RGB_BINS": 16,
+  "USE_PCA": true,
+  "PCA_COMPONENTS": 512,
+  "labels": [
+    "cat",
+    "dog",
+    "wild"
+  ],
+  "models": {
+    "rf_handcrafted": "models/rf_handcrafted.pkl",
+    "svm_handcrafted": "models/svm_handcrafted.pkl",
+    "rf_deep": "models/rf_deep.pkl",
+    "svm_deep": "models/svm_deep.pkl"
+  },
+  "preprocessors": {
+    "scaler_handcrafted": "models/scaler_handcrafted.pkl",
+    "pca_handcrafted": "models/pca_handcrafted.pkl",
+    "scaler_deep": "models/scaler_deep.pkl",
+    "pca_deep": "models/pca_deep.pkl"
+  }
+}

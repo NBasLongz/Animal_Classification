@@ -1,0 +1,113 @@
+{
+  "models": [
+    {
+      "name": "RF-Handcrafted",
+      "display_name": "RF-Handcrafted",
+      "method": "handcrafted",
+      "model_type": "rf",
+      "accuracy": 86.37,
+      "training_time": "~5 phút",
+      "note": "Nhanh nhưng kém chính xác",
+      "confusion_matrix": [
+        [
+          1026,
+          58,
+          28
+        ],
+        [
+          48,
+          881,
+          105
+        ],
+        [
+          102,
+          90,
+          824
+        ]
+      ]
+    },
+    {
+      "name": "SVM-Handcrafted",
+      "display_name": "SVM-Handcrafted",
+      "method": "handcrafted",
+      "model_type": "svm",
+      "accuracy": 94.47,
+      "training_time": "~8 phút",
+      "note": "Cân bằng tốc độ và độ chính xác",
+      "confusion_matrix": [
+        [
+          1079,
+          17,
+          16
+        ],
+        [
+          16,
+          950,
+          68
+        ],
+        [
+          16,
+          42,
+          958
+        ]
+      ]
+    },
+    {
+      "name": "RF-Deep",
+      "display_name": "RF-Deep",
+      "method": "deep",
+      "model_type": "rf",
+      "accuracy": 99.62,
+      "training_time": "~12 phút",
+      "note": "Độ chính xác rất cao",
+      "confusion_matrix": [
+        [
+          1107,
+          3,
+          2
+        ],
+        [
+          0,
+          1033,
+          1
+        ],
+        [
+          0,
+          6,
+          1010
+        ]
+      ]
+    },
+    {
+      "name": "SVM-Deep",
+      "display_name": "SVM-Deep",
+      "method": "deep",
+      "model_type": "svm",
+      "accuracy": 99.75,
+      "training_time": "~15 phút",
+      "note": "Best Model",
+      "confusion_matrix": [
+        [
+          1110,
+          0,
+          2
+        ],
+        [
+          0,
+          1032,
+          2
+        ],
+        [
+          0,
+          4,
+          1012
+        ]
+      ]
+    }
+  ],
+  "labels": [
+    "cat",
+    "dog",
+    "wild"
+  ]
+}

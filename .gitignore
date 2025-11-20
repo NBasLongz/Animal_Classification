@@ -1,0 +1,141 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Data files (large datasets)
+data/afhq-raw/
+data/afhq_split_80_20/
+
+# Models (large files)
+Notebook/models/*.pkl
+Notebook/models/*.pth
+Notebook/models/*.h5
+Notebook/models/rf_handcrafted.pkl
+Notebook/models/svm_handcrafted.pkl
+Notebook/models/rf_deep.pkl
+Notebook/models/svm_deep.pkl
+Notebook/models/scaler_handcrafted.pkl
+Notebook/models/scaler_deep.pkl
+Notebook/models/pca_handcrafted.pkl
+Notebook/models/pca_deep.pkl
+
+# Processed data (can be regenerated)
+Notebook/data/processed/*.npy
+Notebook/data/processed/X_train_deep.npy
+Notebook/data/processed/X_train_hand.npy
+Notebook/data/processed/X_test_hand.npy
+Notebook/data/processed/X_test_deep.npy
+Notebook/data/processed/y_train_deep.npy
+Notebook/data/processed/y_train_hand.npy
+Notebook/data/processed/y_test_deep.npy
+Notebook/data/processed/y_test_hand.npy
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+
+# PyTorch
+*.pt
+*.pth
+
+# TensorFlow
+*.ckpt
+*.pb
+
+# Test outputs
+test_output/
+outputs/
+
+# Cache
+.cache/
+*.cache
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Flask
+instance/
+.webassets-cache
+
+# Node modules (if any frontend dependencies)
+node_modules/
+package-lock.json
+yarn.lock

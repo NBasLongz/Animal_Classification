@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân loại Động vật trong Ảnh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">UIT</div>
+            <h2>Animal Classification</h2>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active" data-page="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Trang Chủ</span>
+            </li>
+            <li class="nav-item" data-page="playground">
+                <i class="fas fa-play"></i>
+                <span>Demo Dự Đoán</span>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Menu Toggle Button for Mobile -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Page -->
+        <div class="page active" id="dashboard">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo">UIT</div>
+                <div class="header-info">
+                    <h1>Phân loại Động vật trong Ảnh (Animal Image Classification)</h1>
+                    <p>Nhập môn Thị giác Máy tính - CS231.Q11</p>
+                    <p>Giảng viên hướng dẫn: TS. Mai Tiến Dũng</p>
+                </div>
+            </header>
+
+            <!-- Team Members -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-users"></i>
+                    <h2>Thông tin Nhóm thực hiện</h2>
+                </div>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-avatar">NB</div>
+                        <div>
+                            <h3>Nguyễn Bá Long</h3>
+                            <p>MSSV: 20120000</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">NC</div>
+                        <div>
+                            <h3>Nguyễn Công Thiết</h3>
+                            <p>MSSV: 20120001</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h2>Giới thiệu Bài toán</h2>
+                </div>
+                <div>
+                    <h3>Vấn đề</h3>
+                    <p>Phân loại 3 lớp: Chó (Dog), Mèo (Cat), và Động vật hoang dã (Wild).</p>
+                    
+                    <h3 style="margin-top: 15px;">Thách thức</h3>
+                    <p><strong>Điểm nhấn:</strong> Nhấn mạnh vấn đề "Mất cân bằng khái niệm" ở lớp Wild (chứa nhiều loài như Hổ, Báo, Sói...) khiến mô hình khó phân biệt với Chó/Mèo.</p>
+                    
+                    <h3 style="margin-top: 15px;">Input/Output</h3>
+                    <p>Ảnh đầu vào → Nhãn lớp (Label)</p>
+                </div>
+            </div>
+
+            <!-- Methodology -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-cogs"></i>
+                    <h2>Phương pháp Tiếp cận</h2>
+                </div>
+                <div class="methodology-container">
+                    <div class="method-card">
+                        <h3>Phương pháp 1: Thủ công (Handcrafted)</h3>
+                        <ul>
+                            <li><strong>Kỹ thuật:</strong> HOG (Hình dạng) + Color Histogram (Màu sắc)</li>
+                            <li><strong>Đặc trưng:</strong> Vector kết hợp, giảm chiều bằng PCA</li>
+                            <li><strong>Ưu điểm:</strong> Nhẹ, dễ hiểu, cổ điển</li>
+                        </ul>
+                    </div>
+                    <div class="method-card">
+                        <h3>Phương pháp 2: Học sâu (Deep Learning)</h3>
+                        <ul>
+                            <li><strong>Kỹ thuật:</strong> Transfer Learning với ResNet50</li>
+                            <li><strong>Đặc trưng:</strong> Trích xuất vector 2048 chiều từ lớp áp chót</li>
+                            <li><strong>Ưu điểm:</strong> Hiểu ngữ nghĩa cao cấp, độ chính xác cao</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dataset & References -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-database"></i>
+                    <h2>Dữ liệu & Tài liệu tham khảo</h2>
+                </div>
+                <div>
+                    <h3>Dataset</h3>
+                    <p><strong>Tên:</strong> AFHQ (Animal Faces-HQ)</p>
+                    <p><strong>Link:</strong> <a href="#">Kaggle Link</a></p>
+                    <p><strong>Số lượng:</strong> ~15,000 ảnh (Train: 80%, Test: 20%)</p>
+                    
+                    <h3 style="margin-top: 15px;">Tài liệu tham khảo</h3>
+                    <ul>
+                        <li>Rajpal et al. (2021) - Sử dụng ResNet50 kết hợp Handpicked features. <a href="#">Link bài báo</a></li>
+                        <li>Pramana et al. - Few-Shot Learning với ResNet trên X-quang. <a href="#">Link bài báo</a></li>
+                        <li>HOG Paper (Dalal & Triggs) - Histograms of Oriented Gradients.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Training Results -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar"></i>
+                    <h2>Kết quả Thực nghiệm</h2>
+                </div>
+                <div>
+                    <h3>Biểu đồ so sánh Accuracy</h3>
+                    <div class="chart-container">
+                        <div class="bar" style="height: 85%;">
+                            <div class="bar-value">85%</div>
+                            <div class="bar-label">RF-Handcrafted</div>
+                        </div>
+                        <div class="bar" style="height: 88%;">
+                            <div class="bar-value">88%</div>
+                            <div class="bar-label">SVM-Handcrafted</div>
+                        </div>
+                        <div class="bar" style="height: 92%;">
+                            <div class="bar-value">92%</div>
+                            <div class="bar-label">RF-Deep</div>
+                        </div>
+                        <div class="bar" style="height: 96%;">
+                            <div class="bar-value">96%</div>
+                            <div class="bar-label">SVM-Deep</div>
+                        </div>
+                    </div>
+                    
+                    <h3>Bảng số liệu</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Mô hình</th>
+                                <th>Độ chính xác</th>
+                                <th>Thời gian huấn luyện</th>
+                                <th>Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SVM (ResNet50)</td>
+                                <td>96.xx%</td>
+                                <td>~15 phút</td>
+                                <td>Best Model</td>
+                            </tr>
+                            <tr>
+                                <td>Random Forest (HOG)</td>
+                                <td>8x.xx%</td>
+                                <td>~5 phút</td>
+                                <td>Nhanh nhưng kém chính xác</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3 style="margin-top: 20px;">Ma trận nhầm lẫn (Confusion Matrix)</h3>
+                    <div id="confusionMatrixContainer" style="margin-top: 15px;">
+                        <p style="text-align: center; color: #7f8c8d;">Đang tải confusion matrices...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Playground Page -->
+        <div class="page" id="playground">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="header-info">
+                    <h1>Demo Dự Đoán</h1>
+                    <p>Nơi người dùng tải ảnh lên và xem mô hình chạy thực tế</p>
+                </div>
+            </header>
+
+            <!-- Upload Area -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-upload"></i>
+                    <h2>Khu vực Upload</h2>
+                </div>
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 3.5rem; color: var(--primary-color);"></i>
+                    <h3 style="margin: 20px 0;">Kéo và thả ảnh vào đây hoặc</h3>
+                    <button class="upload-button" id="uploadButton">Tải ảnh lên</button>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <p style="margin-top: 20px; color: #7f8c8d;">Hỗ trợ định dạng: JPG, PNG</p>
+                </div>
+                <img id="imagePreview" class="image-preview" alt="Preview">
+            </div>
+
+            <!-- Method Tabs -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-cogs"></i>
+                    <h2>Cấu hình & Kết quả</h2>
+                </div>
+                <div class="tabs">
+                    <button class="tab active" data-tab="handcrafted">Phương pháp Thủ công (HOG + Color)</button>
+                    <button class="tab" data-tab="deeplearning">Phương pháp Deep Learning (ResNet50)</button>
+                </div>
+
+                <!-- Handcrafted Tab Content -->
+                <div class="tab-content active" id="handcrafted">
+                    <div style="margin-bottom: 20px;">
+                        <label for="handcraftedModel" style="display: block; margin-bottom: 10px; font-weight: 500;">Chọn Mô hình:</label>
+                        <select id="handcraftedModel">
+                            <option value="svm">Support Vector Machine (SVM)</option>
+                            <option value="rf">Random Forest (RF)</option>
+                        </select>
+                    </div>
+
+                    <!-- Prediction Button -->
+                    <button class="predict-button" id="handcraftedPredictButton">
+                        <i class="fas fa-magic"></i>
+                        Thực hiện Dự đoán
+                    </button>
+
+                    <h3 style="margin-bottom: 20px;">Minh họa Quy trình xử lý</h3>
+                    <div class="pipeline-container">
+                        <div class="pipeline-step">
+                            <div class="pipeline-image">
+                                <img id="handPipelineOriginal" src="" alt="Original" style="width: 100%; height: 100%; object-fit: contain; display: none;">
+                                <div id="handPipelineOriginalPlaceholder" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;">Chưa có ảnh</div>
+                            </div>
+                            <p>Ảnh gốc (128x128)</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <div class="pipeline-image">
+                                <canvas id="handPipelineGray" style="width: 100%; height: 100%; object-fit: contain;"></canvas>
+                            </div>
+                            <p>Ảnh xám (HOG input)</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <div class="pipeline-image">
+                                <canvas id="handPipelineHOG" style="width: 100%; height: 100%; object-fit: contain;"></canvas>
+                            </div>
+                            <p>HOG Visualization</p>
+                        </div>
+                        <div class="pipeline-step">
+                            <div class="pipeline-image">
+                                <canvas id="colorHistogram" style="width: 100%; height: 100%; object-fit: contain;"></canvas>
+                            </div>
+                            <p>Color Histogram</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 20px;">Kết quả Dự đoán</h3>
+                    <div class="result-container">
+                        <div class="result-label" id="handcraftedResultLabel">Chưa dự đoán</div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="handcraftedConfidence" style="width: 0%;"></div>
+                        </div>
+                        <div class="processing-time" id="handcraftedProcessingTime">Thời gian xử lý: --</div>
+                    </div>
+                </div>
+
+                <!-- Deep Learning Tab Content -->
+                <div class="tab-content" id="deeplearning">
+                    <div style="margin-bottom: 20px;">
+                        <label for="deepModel" style="display: block; margin-bottom: 10px; font-weight: 500;">Chọn Mô hình:</label>
+                        <select id="deepModel">
+                            <option value="svm">Support Vector Machine (SVM)</option>
+                            <option value="rf">Random Forest (RF)</option>
+                        </select>
+                    </div>
+
+                    <!-- Prediction Button -->
+                    <button class="predict-button" id="deepPredictButton">
+                        <i class="fas fa-magic"></i>
+                        Thực hiện Dự đoán
+                    </button>
+
+                    <h3 style="margin-bottom: 20px;">Góc nhìn của AI</h3>
+                    <div class="comparison-container">
+                        <div class="comparison-item">
+                            <div class="comparison-image">
+                                <img id="deepPipelineOriginal" src="" alt="Original" style="width: 100%; height: 100%; object-fit: contain; display: none;">
+                                <div id="deepPipelineOriginalPlaceholder" style="width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;">Chưa có ảnh</div>
+                            </div>
+                            <p>Ảnh gốc</p>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-image">
+                                <canvas id="deepPipelineProcessed" style="width: 100%; height: 100%; object-fit: contain;"></canvas>
+                            </div>
+                            <p>ResNet Input (Resize 256 -> Center Crop 224 -> Normalize)</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 20px;">Kết quả Dự đoán</h3>
+                    <div class="result-container">
+                        <div class="result-label" id="deepResultLabel">Chưa dự đoán</div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="deepConfidence" style="width: 0%;"></div>
+                        </div>
+                        <div class="processing-time" id="deepProcessingTime">Thời gian xử lý: --</div>
+                        <p style="margin-top: 20px; font-style: italic; color: #7f8c8d;">Sử dụng vector đặc trưng 2048 chiều từ ResNet50 Pre-trained</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
